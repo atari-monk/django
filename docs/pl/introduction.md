@@ -206,11 +206,13 @@ def home(request):
 ```
 ### **Aktualizacja szablonu (`home.html`)**  
 ```html
+{% raw %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Wyślij</button>
+    <button type="submit">Submit</button>
 </form>
+{% endraw %}
 ```
 
 ---

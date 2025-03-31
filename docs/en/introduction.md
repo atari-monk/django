@@ -207,11 +207,13 @@ def home(request):
 ```
 ### **Updating the Template (`home.html`)**  
 ```html
+{% raw %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Submit</button>
 </form>
+{% endraw %}
 ```
 
 ---
