@@ -2,12 +2,12 @@
 
 ## En
 
-- [Introduction](docs/en/django.md)
+- [Introduction](docs/en/introduction.md)
 - [Script](docs/en/script.md)
 
 ---
 
 ## Pl
 
-- [Wprowadzenie](docs/pl/django_pl.md)
+- [Wprowadzenie](docs/pl/introduction.md)
 - [Script](docs/pl/script.md)
