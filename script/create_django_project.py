@@ -8,19 +8,23 @@ def create_django_project():
         print("⚠️ Project name cannot be empty. Try again.")
         return
 
+    # Move one folder up
     parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
-    project_path = os.path.join(parent_dir, project_name)
-
-    if os.path.exists(project_path):
+    os.chdir(parent_dir)  # Change working directory to parent
+    
+    if os.path.exists(project_name):
         print(f"⚠️ A folder named '{project_name}' already exists in {parent_dir}. Choose a different name.")
         return
     
     print(f"\n🚀 Creating Django project '{project_name}' in {parent_dir}...\n")
 
     try:
-        subprocess.check_call(["django-admin", "startproject", project_name, parent_dir])
-        print(f"✅ Django project '{project_name}' created successfully in {parent_dir}!\n")
+        # Create the project in the parent directory
+        subprocess.check_call(["django-admin", "startproject", project_name])
+        print(f"✅ Django project '{project_name}' created successfully!\n")
 
+        # Navigate into the new project directory
+        project_path = os.path.join(parent_dir, project_name)
         os.chdir(project_path)
 
         print("\n🚀 Starting the Django development server...\n")
