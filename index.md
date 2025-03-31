@@ -1,5 +1,3 @@
-# Django
-
 ## En
 
 - [Introduction](docs/en/introduction.md)
