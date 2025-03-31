@@ -1,3 +1,4 @@
+from django.urls import include
 """
 URL configuration for LinkShelf project.
 
@@ -18,5 +19,7 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
+    path('', include('videos.urls')),
+
     path('admin/', admin.site.urls),
 ]
