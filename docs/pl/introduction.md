@@ -2,7 +2,7 @@
 
 # Wprowadzenie
 
-Pytanie 1: Pewna firma pracuje z Django. Muszę wiedzieć o nim wszystko, aby przygotować się do pracy. Czy możesz mnie nauczyć?
+Pytanie 1: Firma pracuje z Django. Muszę wiedzieć o nim wszystko, aby przygotować się do pracy. Czy możesz mnie nauczyć?
 
 Content_1: Tak! Django to potężny framework internetowy do tworzenia aplikacji internetowych przy użyciu Pythona. Omówię go krok po kroku, aby pomóc Ci go opanować w ramach przygotowania do pracy.
 
