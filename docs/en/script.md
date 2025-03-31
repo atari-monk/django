@@ -9,4 +9,4 @@
 3. create_django_project.py
 - generates django project in parent folder (assumption that scripts are in repo_root/script folder)
 4. create_django_app.py
-- generates django app in project
+- generates django app in project, dont forget to add app in settings file
