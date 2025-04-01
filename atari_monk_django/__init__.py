@@ -1,4 +1,4 @@
-from .library.master_script import master_scripts
+from .library.script_menu import master_scripts
 from .library.remove_comments import remove_comments_from_file
 from .library.markdown_to_text import markdown_to_text_using_clipboard
 from .library.setup_django import install_django, check_django_installed

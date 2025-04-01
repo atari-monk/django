@@ -1,0 +1,4 @@
+from atari_monk_django.library.script_menu import master_scripts
+
+if __name__ == "__main__":
+    master_scripts()
