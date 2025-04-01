@@ -1,14 +1,16 @@
 import os
 import subprocess
 
-def generate_app():
-    project_path = input("📌 Enter the full path to your Django project: ").strip()
+def generate_app(project_path=None, app_name=None):
+    if project_path is None:
+        project_path = input("📌 Enter the full path to your Django project: ").strip()
     
     if not os.path.exists(os.path.join(project_path, "manage.py")):
         print("❌ This does not seem to be a Django project (manage.py not found). Try again.")
         return
     
-    app_name = input("📌 Enter your Django app name: ").strip()
+    if app_name is None:
+        app_name = input("📌 Enter your Django app name: ").strip()
     
     if not app_name:
         print("⚠️ App name cannot be empty. Try again.")
