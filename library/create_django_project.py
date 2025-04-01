@@ -1,14 +1,7 @@
 import os
 import subprocess
 import sys
-
-def check_django_installed():
-    
-    try:
-        subprocess.run(["django-admin", "--version"], check=True, capture_output=True)
-        return True
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        return False
+from library import check_django_installed
 
 def create_django_project():
     project_name = input("📌 Enter your Django project name: ").strip()

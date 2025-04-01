@@ -1,8 +1,14 @@
 import os
 import subprocess
 
+SCRIPTS_PATH = r"C:\atari-monk\code\django\script" 
+
 def list_scripts():
-    scripts = [f for f in os.listdir() if f.endswith(".py") and f != "master_script.py"]
+    
+    scripts = [
+        f for f in os.listdir(SCRIPTS_PATH) 
+        if f.endswith(".py") and f != os.path.basename(__file__)
+    ]
     return scripts
 
 def display_menu(scripts):
@@ -12,10 +18,14 @@ def display_menu(scripts):
     print("  0. Exit")
 
 def run_script(script_name):
+    
+    script_path = os.path.join(SCRIPTS_PATH, script_name)
     print(f"\n🚀 Running {script_name}...\n")
-    subprocess.run(["python", script_name])
+    subprocess.run(["python", script_path])
 
 def main():
+    print(f"🔍 Looking for scripts in: {os.path.abspath(SCRIPTS_PATH)}")
+    
     while True:
         scripts = list_scripts()
         if not scripts:

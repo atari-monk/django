@@ -1,1 +1,2 @@
+from .setup_django import install_django, verify_django, check_django_installed
 from .create_django_project import create_django_project
