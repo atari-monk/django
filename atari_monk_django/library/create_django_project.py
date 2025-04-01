@@ -3,12 +3,13 @@ import subprocess
 import sys
 from .setup_django import check_django_installed
 
-def create_django_project():
-    project_name = input("📌 Enter your Django project name: ").strip()
+def create_django_project(project_name=None):
+    if project_name is None:
+        project_name = input("📌 Enter your Django project name: ").strip()
 
-    if not project_name:
-        print("⚠️ Project name cannot be empty. Try again.")
-        return
+        if not project_name:
+            print("⚠️ Project name cannot be empty. Try again.")
+            return
 
     if not check_django_installed(verbose=True):
         print("❌ Django is not installed. Run `pip install django` and try again.")
