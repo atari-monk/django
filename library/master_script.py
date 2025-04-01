@@ -2,7 +2,7 @@ import os
 import subprocess
 
 def list_scripts(scripts_path):
-    """List all Python scripts in the specified directory except the master script"""
+    
     scripts = [
         f for f in os.listdir(scripts_path) 
         if f.endswith(".py") and f != os.path.basename(__file__)
@@ -16,7 +16,7 @@ def display_menu(scripts):
     print("  0. Exit")
 
 def run_script(script_name, scripts_path):
-    """Run the selected script using the specified path"""
+    
     script_path = os.path.join(scripts_path, script_name)
     print(f"\n🚀 Running {script_name}...\n")
     subprocess.run(["python", script_path])

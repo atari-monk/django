@@ -1,7 +1,11 @@
 # Script
 
 1. master_script.py
-- script that detects scripts in folder and allows menu to run them
+- script that detects scripts in folder and allows menu to run them  
+To run:  
+```sh
+python -m script.master_script
+```
 2. setup_django.py
 - install framework, print version and installation info
 3. md_txt.py
