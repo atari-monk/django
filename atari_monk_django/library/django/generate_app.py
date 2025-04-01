@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-def create_django_app():
+def generate_app():
     project_path = input("📌 Enter the full path to your Django project: ").strip()
     
     if not os.path.exists(os.path.join(project_path, "manage.py")):

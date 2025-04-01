@@ -1,11 +1,11 @@
-from .library.script_menu import master_scripts
-from .library.remove_comments import remove_comments_from_file
-from .library.markdown_to_text import markdown_to_text_using_clipboard
-from .library.setup_django import install_django, check_django_installed
-from .library.create_django_project import create_django_project
-from .library.create_django_app import create_django_app
-from .library.generate_model import apply_model
-from .library.interactive_model import generate_model_file
-from .library.setup_urls_and_views import setup_urls_and_views
+from .library.utils.script_menu import script_menu
+from .library.utils.remove_comments import remove_comments_from_file
+from .library.utils.markdown_to_text import markdown_to_text_using_clipboard
+from .library.django.setup_django import install_django, check_django_installed
+from .library.django.generate_project import generate_project
+from .library.django.generate_app import generate_app
+from .library.django.generate_model import apply_model
+from .library.django.interactive_model import generate_model_file
+from .library.django.setup_urls_and_views import setup_urls_and_views
 
 __version__ = '0.1.0'

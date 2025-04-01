@@ -1,11 +1,8 @@
-import os
 import importlib
-import sys
 from pathlib import Path
 
 def get_scripts_path():
-    """Dynamically locate the scripts directory"""
-    package_dir = Path(__file__).parent.parent  # atari_monk_django directory
+    package_dir = Path(__file__).parent.parent.parent
     return package_dir / "scripts"
 
 def list_scripts(scripts_path):
@@ -21,7 +18,6 @@ def display_menu(scripts):
     print("  0. Exit")
 
 def run_script(script_name):
-    """Run script by importing its main function"""
     module_name = f"atari_monk_django.scripts.{script_name}"
     try:
         module = importlib.import_module(module_name)
@@ -33,7 +29,7 @@ def run_script(script_name):
     except ImportError as e:
         print(f"❌ Failed to import {script_name}: {str(e)}")
 
-def master_scripts():
+def script_menu():
     scripts_path = get_scripts_path()
     print(f"🔍 Looking for scripts in: {scripts_path}")
     
@@ -56,6 +52,3 @@ def master_scripts():
                 print("⚠️ Invalid choice. Please try again.")
         except ValueError:
             print("⚠️ Please enter a valid number.")
-
-if __name__ == "__main__":
-    master_scripts()
