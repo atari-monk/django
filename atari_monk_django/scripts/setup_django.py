@@ -1,6 +1,6 @@
-from library import install_django, check_django_installed
+from atari_monk_django.library.setup_django import install_django, check_django_installed
 
-if __name__ == "__main__":
+def main():
     print("🚀 Setting up Django...\n")
     install_django()
     check_django_installed(verbose=True)

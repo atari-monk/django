@@ -1,7 +1,7 @@
 import os
 import subprocess
 import sys
-from library import check_django_installed
+from .setup_django import check_django_installed
 
 def create_django_project():
     project_name = input("📌 Enter your Django project name: ").strip()
