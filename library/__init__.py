@@ -1,2 +1,3 @@
-from .setup_django import install_django, verify_django, check_django_installed
+from .master_script import master_scripts
+from .setup_django import install_django, check_django_installed
 from .create_django_project import create_django_project

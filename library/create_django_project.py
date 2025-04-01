@@ -10,7 +10,7 @@ def create_django_project():
         print("⚠️ Project name cannot be empty. Try again.")
         return
 
-    if not check_django_installed():
+    if not check_django_installed(verbose=True):
         print("❌ Django is not installed. Run `pip install django` and try again.")
         return
 
