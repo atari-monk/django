@@ -10,6 +10,8 @@ def master_script():
                        help='Skip creating migrations for the project')
     parser.add_argument('--skip-runserver', action='store_true', 
                        help='Skip running the development server')
+    parser.add_argument('--base-path', type=str, default=r"C:\atari-monk\code\django",
+                       help='Base path where the project/app will be created')
     
     parser.add_argument('--app-names', type=str, nargs='+',
                        help='Names of the Django apps to create (space-separated)')
@@ -36,6 +38,7 @@ def master_script():
         print(f"\nGenerating {len(args.app_names)} apps:")
         for app_name in args.app_names:
             generate_app(
-                project_path=project_path,
-                app_name=app_name
+                project_name=args.project_name,
+                app_name=app_name,
+                base_path=args.base_path
             )
