@@ -1,53 +1,67 @@
-import importlib
-from pathlib import Path
+from atari_monk_django.library.django.generate_project  import generate_project
+from atari_monk_django.library.django.generate_app  import generate_app
+from atari_monk_django.library.django.interactive_model  import generate_model_file
+from atari_monk_django.library.django.generate_model  import apply_model
+from atari_monk_django.library.django.setup_urls_and_views import setup_urls_and_views
+from atari_monk_django.library.utils.remove_comments import remove_comments_from_file
+from atari_monk_django.library.utils.markdown_to_text import markdown_to_text_using_clipboard
+from atari_monk_django.library.django.setup_django import install_django, check_django_installed
 
-def get_scripts_path():
-    package_dir = Path(__file__).parent.parent.parent
-    return package_dir / "scripts"
+def script_1():
+    generate_project()
 
-def list_scripts(scripts_path):
-    return [
-        f.stem for f in scripts_path.glob("*.py") 
-        if f.is_file() and f.name != Path(__file__).name
-    ]
+def script_2():
+    generate_app()
 
-def display_menu(scripts):
+def script_3():
+    generate_model_file()
+
+def script_4():
+    apply_model()
+
+def script_5():
+    setup_urls_and_views()
+
+def script_6():
+    remove_comments_from_file()
+
+def script_7():
+    markdown_to_text_using_clipboard()
+
+def script_8():
+    print("🚀 Setting up Django...\n")
+    install_django()
+    check_django_installed(verbose=True)
+
+SCRIPTS = [
+    {"name": "Generate django Project", "func": script_1},
+    {"name": "Generate django App", "func": script_2},
+    {"name": "Generate django Model", "func": script_3},
+    {"name": "Apply django Model", "func": script_4},
+    {"name": "Setup django urls and Views", "func": script_5},
+    {"name": "Remove comments form file", "func": script_6},
+    {"name": "Markdown to text", "func": script_7},
+    {"name": "Setup django", "func": script_8},
+]
+
+def display_menu():
     print("\n📜 Available Scripts:")
-    for idx, script in enumerate(scripts, 1):
-        print(f"  {idx}. {script}")
+    for idx, script in enumerate(SCRIPTS, 1):
+        print(f"  {idx}. {script['name']}")
     print("  0. Exit")
 
-def run_script(script_name):
-    module_name = f"atari_monk_django.scripts.{script_name}"
-    try:
-        module = importlib.import_module(module_name)
-        if hasattr(module, 'main'):
-            print(f"\n🚀 Running {script_name}...\n")
-            module.main()
-        else:
-            print(f"❌ {script_name} has no 'main' function")
-    except ImportError as e:
-        print(f"❌ Failed to import {script_name}: {str(e)}")
-
 def script_menu():
-    scripts_path = get_scripts_path()
-    print(f"🔍 Looking for scripts in: {scripts_path}")
-    
     while True:
-        scripts = list_scripts(scripts_path)
-        if not scripts:
-            print("❌ No scripts found in the folder.")
-            break
-
-        display_menu(scripts)
+        display_menu()
 
         try:
             choice = int(input("\n🔢 Enter the script number to run (0 to exit): "))
             if choice == 0:
                 print("👋 Exiting...")
                 break
-            elif 1 <= choice <= len(scripts):
-                run_script(scripts[choice - 1])
+            elif 1 <= choice <= len(SCRIPTS):
+                print(f"\n🚀 Running {SCRIPTS[choice-1]['name']}...\n")
+                SCRIPTS[choice-1]["func"]()
             else:
                 print("⚠️ Invalid choice. Please try again.")
         except ValueError:
