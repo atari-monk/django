@@ -1,8 +1,7 @@
 import json
-from typing import List, Dict, Any
+from typing import Dict, Any
 
 def get_field_definition() -> Dict[str, Any]:
-    """Get a single field definition from user input."""
     field_name = input("🔹 Field name: ").strip()
     if field_name.lower() == 'done':
         return None
@@ -48,7 +47,6 @@ def get_field_definition() -> Dict[str, Any]:
     }
 
 def generate_model_metadata() -> Dict[str, Any]:
-    """Generate complete model metadata from user input."""
     model_name = input("📌 Enter your model name (e.g., Employee): ").strip()
     app_name = input("📌 Enter your app name (optional, press Enter to skip): ").strip()
     
@@ -68,7 +66,6 @@ def generate_model_metadata() -> Dict[str, Any]:
     }
 
 def save_metadata(metadata: Dict[str, Any]) -> str:
-    """Save metadata to JSON file and return filename."""
     filename = f"{metadata['model_name'].lower()}_model_metadata.json"
     with open(filename, 'w') as f:
         json.dump(metadata, f, indent=2)
