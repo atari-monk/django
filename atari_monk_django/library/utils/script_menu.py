@@ -44,7 +44,7 @@ def script_menu():
         try:
             choice = int(input("\n🔢 Enter the script number to run (0 to exit): "))
             if choice == 0:
-                print("👋 Exiting...")
+                clear_screen()
                 break
             elif 1 <= choice <= len(SCRIPTS):
                 print(f"\n🚀 Running {SCRIPTS[choice-1]['name']}...\n")
