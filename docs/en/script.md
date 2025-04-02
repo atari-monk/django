@@ -22,3 +22,7 @@ python -m script.master_script
     ```
 4. create_django_app.py
 - generates django app in project, dont forget to add app in settings file
+5. master_script
+```sh
+python -m atari_monk_django.scripts.master_script --project-name linkshelf --app-names users links
+```
