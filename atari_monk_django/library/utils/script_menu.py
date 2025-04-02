@@ -1,6 +1,6 @@
 from atari_monk_django.library.django.generate_project  import generate_project
 from atari_monk_django.library.django.generate_app  import generate_app
-from atari_monk_django.library.django.interactive_model  import generate_model_file
+from atari_monk_django.library.django.meta_model  import save_meta_model
 from atari_monk_django.library.django.generate_model  import apply_model
 from atari_monk_django.library.django.setup_urls_and_views import setup_urls_and_views
 from atari_monk_django.library.utils.remove_comments import remove_comments_from_file
@@ -14,7 +14,7 @@ def script_2():
     generate_app()
 
 def script_3():
-    generate_model_file()
+    save_meta_model()
 
 def script_4():
     apply_model()
@@ -36,7 +36,7 @@ def script_8():
 SCRIPTS = [
     {"name": "Generate django Project", "func": script_1},
     {"name": "Generate django App", "func": script_2},
-    {"name": "Generate django Model", "func": script_3},
+    {"name": "Generate django Meta Model", "func": script_3},
     {"name": "Apply django Model", "func": script_4},
     {"name": "Setup django urls and Views", "func": script_5},
     {"name": "Remove comments form file", "func": script_6},

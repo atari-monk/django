@@ -1,0 +1,30 @@
+{
+  "model_name": "Link",
+  "app_name": "links",
+  "fields": [
+    {
+      "name": "url",
+      "type": "URLField",
+      "params": {}
+    },
+    {
+      "name": "title",
+      "type": "CharField",
+      "params": {
+        "max_length": 200
+      }
+    },
+    {
+      "name": "description",
+      "type": "TextField",
+      "params": {}
+    },
+    {
+      "name": "is_public",
+      "type": "BooleanField",
+      "params": {
+        "default": false
+      }
+    }
+  ]
+}
