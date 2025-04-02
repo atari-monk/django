@@ -2,7 +2,7 @@ import json
 from typing import Dict, Any
 
 def generate_model_code(metadata: Dict[str, Any]) -> str:
-    """Generate Django model code from metadata dictionary."""
+
     if not metadata or 'model_name' not in metadata or 'fields' not in metadata:
         raise ValueError("Invalid metadata: must contain 'model_name' and 'fields'")
 
@@ -17,13 +17,10 @@ def generate_model_code(metadata: Dict[str, Any]) -> str:
         if not all(k in field for k in ['name', 'type']):
             raise ValueError(f"Invalid field definition: {field}")
 
-        field_parts = [f"models.{field['type']}"]
-        
-        if field.get('params'):
-            params = ", ".join(f"{k}={repr(v)}" for k, v in field['params'].items())
-            field_parts.append(params)
-        
-        field_line = f"    {field['name']} = {'('.join(field_parts)})"
+        field_type = f"models.{field['type']}"
+        params = ", ".join(f"{k}={repr(v)}" for k, v in field.get('params', {}).items())
+
+        field_line = f"    {field['name']} = {field_type}({params})"
         lines.append(field_line)
 
     if metadata['fields']:
@@ -38,20 +35,20 @@ def generate_model_code(metadata: Dict[str, Any]) -> str:
     return "\n".join(lines)
 
 def save_model_code(model_code: str, metadata: Dict[str, Any]) -> str:
-    """Save generated model code to a file."""
+
     if not model_code or not metadata or 'model_name' not in metadata:
         raise ValueError("Invalid model code or metadata")
-    
+
     filename = f"{metadata['model_name'].lower()}_model.py"
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(model_code)
     return filename
 
 def save_model_class():
-    """Main function to load metadata and generate model file."""
+
     try:
         metadata_file = input("📌 Enter path to metadata JSON file: ").strip()
-        
+
         with open(metadata_file, encoding='utf-8') as f:
             metadata = json.load(f)
 
@@ -61,7 +58,7 @@ def save_model_class():
 
         filename = save_model_code(model_code, metadata)
         print(f"\n✅ Model code saved to {filename}")
-        
+
     except FileNotFoundError:
         print(f"❌ Error: File not found at {metadata_file}")
     except json.JSONDecodeError:
