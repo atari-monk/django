@@ -5,7 +5,6 @@ from .library.utils.script_menu import script_menu
 from .library.django.generate_app import generate_app
 from .library.django.generate_model import apply_model
 from .library.django.generate_project import generate_project
-from .library.django.interactive_model import generate_model_file
 from .library.django.master_script import master_script
 from .library.django.meta_model import save_meta_model
 from .library.django.setup_django import install_django, check_django_installed
