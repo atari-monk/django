@@ -1,10 +1,6 @@
-# Django
+# Django Introduction
 
-# Introduction
-
-Question_1: Company is working with Django. I need to know everything about it to prepare for job. Can you teach me?
-
-Content_1: Yes! Django is a powerful web framework for building web applications using Python. I'll break it down step by step to help you master it for your job preparation.  
+Django is a powerful web framework for building web applications using Python. I'll break it down step by step to help you master it for your job preparation.  
 
 ---
 
