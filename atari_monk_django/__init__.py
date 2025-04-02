@@ -7,6 +7,7 @@ from .library.django.generate_model import apply_model
 from .library.django.generate_project import generate_project
 from .library.django.master_script import master_script
 from .library.django.meta_model import save_meta_model
+from .library.django.model_class import save_model_class
 from .library.django.setup_django import install_django, check_django_installed
 from .library.django.setup_urls_and_views import setup_urls_and_views
 
