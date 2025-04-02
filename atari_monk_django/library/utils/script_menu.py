@@ -1,47 +1,34 @@
-from atari_monk_django.library.django.generate_project  import generate_project
-from atari_monk_django.library.django.generate_app  import generate_app
-from atari_monk_django.library.django.meta_model  import save_meta_model
-from atari_monk_django.library.django.generate_model  import apply_model
+from atari_monk_django.library.django.generate_project import generate_project
+from atari_monk_django.library.django.generate_app import generate_app
+from atari_monk_django.library.django.meta_model import save_meta_model
+from atari_monk_django.library.django.generate_model import apply_model
 from atari_monk_django.library.django.setup_urls_and_views import setup_urls_and_views
 from atari_monk_django.library.utils.remove_comments import remove_comments_from_file
 from atari_monk_django.library.utils.markdown_to_text import markdown_to_text_using_clipboard
 from atari_monk_django.library.django.setup_django import install_django, check_django_installed
+import os
+import platform
 
-def script_1():
-    generate_project()
-
-def script_2():
-    generate_app()
-
-def script_3():
-    save_meta_model()
-
-def script_4():
-    apply_model()
-
-def script_5():
-    setup_urls_and_views()
-
-def script_6():
-    remove_comments_from_file()
-
-def script_7():
-    markdown_to_text_using_clipboard()
-
-def script_8():
-    print("🚀 Setting up Django...\n")
-    install_django()
-    check_django_installed(verbose=True)
+def clear_screen():
+    if platform.system() == "Windows":
+        os.system('cls')
+    else:
+        os.system('clear')
 
 SCRIPTS = [
-    {"name": "Generate django Project", "func": script_1},
-    {"name": "Generate django App", "func": script_2},
-    {"name": "Generate django Meta Model", "func": script_3},
-    {"name": "Apply django Model", "func": script_4},
-    {"name": "Setup django urls and Views", "func": script_5},
-    {"name": "Remove comments form file", "func": script_6},
-    {"name": "Markdown to text", "func": script_7},
-    {"name": "Setup django", "func": script_8},
+    {"name": "Generate django Project", "func": generate_project},
+    {"name": "Generate django App", "func": generate_app},
+    {"name": "Generate django Meta Model", "func": save_meta_model},
+    {"name": "Apply django Model", "func": apply_model},
+    {"name": "Setup django urls and Views", "func": setup_urls_and_views},
+    {"name": "Remove comments from file", "func": remove_comments_from_file},
+    {"name": "Markdown to text", "func": markdown_to_text_using_clipboard},
+    {"name": "Setup django", "func": lambda: (
+        print("🚀 Setting up Django...\n"),
+        install_django(),
+        check_django_installed(verbose=True)
+    )},
+    {"name": "Clear screen", "func": clear_screen},
 ]
 
 def display_menu():
@@ -62,7 +49,18 @@ def script_menu():
             elif 1 <= choice <= len(SCRIPTS):
                 print(f"\n🚀 Running {SCRIPTS[choice-1]['name']}...\n")
                 SCRIPTS[choice-1]["func"]()
+                if SCRIPTS[choice-1]["name"] != "Clear screen":
+                    input("\nPress Enter to continue...")
+                clear_screen()
             else:
                 print("⚠️ Invalid choice. Please try again.")
+                input("\nPress Enter to continue...")
+                clear_screen()
         except ValueError:
             print("⚠️ Please enter a valid number.")
+            input("\nPress Enter to continue...")
+            clear_screen()
+
+if __name__ == "__main__":
+    clear_screen()
+    script_menu()
