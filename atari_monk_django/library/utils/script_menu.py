@@ -5,6 +5,7 @@ from atari_monk_django.library.django.generate_app import generate_app
 from atari_monk_django.library.django.meta_model import save_meta_model
 from atari_monk_django.library.django.model_class import save_model_class
 from atari_monk_django.library.django.generate_model import apply_model
+from atari_monk_django.library.django.generate_crud import generate_crud
 from atari_monk_django.library.utils.remove_comments import remove_comments_from_file
 from atari_monk_django.library.utils.markdown_to_text import markdown_to_text_using_clipboard
 from atari_monk_django.library.django.setup_django import install_django, check_django_installed
@@ -21,6 +22,7 @@ SCRIPTS = [
     {"name": "Generate django Meta Model", "func": save_meta_model},
     {"name": "Generate django Model Class", "func": save_model_class},
     {"name": "Apply django Model", "func": apply_model},
+    {"name": "Generate CRUD", "func": generate_crud},
     {"name": "Remove comments from file", "func": remove_comments_from_file},
     {"name": "Markdown to text", "func": markdown_to_text_using_clipboard},
     {"name": "Setup django", "func": lambda: (
